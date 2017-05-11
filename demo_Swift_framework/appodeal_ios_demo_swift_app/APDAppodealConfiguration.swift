@@ -73,6 +73,7 @@ class APDAppodealConfiguration: APDVisualRootViewController, UITableViewDelegate
             case 2: config.banner = isOn;           break
             case 3: config.MREC = isOn;             break
             case 4: config.nativeAds = isOn;        break
+            case 5: config.nonSkipVideo = isOn;     break
             default : break
             }; break
         case 1:
@@ -105,7 +106,7 @@ class APDAppodealConfiguration: APDVisualRootViewController, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case 0: return 5;
+        case 0: return 6;
         case 1: return 2;
         case 2: return 2;
         case 3: return 3;
@@ -131,6 +132,7 @@ class APDAppodealConfiguration: APDVisualRootViewController, UITableViewDelegate
             case 2: flag = self.config.banner; text = "banner";                 break
             case 3: flag = self.config.MREC; text = "MREC";                     break
             case 4: flag = self.config.nativeAds; text = "native Ads";           break
+            case 5: flag = self.config.nonSkipVideo; text = "nonSkipVideo";       break
             default : break
             }; break
         case 1:

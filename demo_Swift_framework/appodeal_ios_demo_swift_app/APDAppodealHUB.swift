@@ -9,7 +9,7 @@
 import UIKit
 import Appodeal
 
-class APDAppodealHUB: APDRootViewController, UITableViewDelegate, UITableViewDataSource, AppodealInterstitialDelegate, AppodealRewardedVideoDelegate {
+class APDAppodealHUB: APDRootViewController, UITableViewDelegate, UITableViewDataSource, AppodealInterstitialDelegate, AppodealRewardedVideoDelegate, AppodealNonSkippableVideoDelegate {
     
     var isAutoCache : Bool = false;
     
@@ -84,7 +84,7 @@ class APDAppodealHUB: APDRootViewController, UITableViewDelegate, UITableViewDat
     //MARK: TableViewDelegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,6 +93,7 @@ class APDAppodealHUB: APDRootViewController, UITableViewDelegate, UITableViewDat
         case 1: return 1;
         case 2: return 3;
         case 3: return 1;
+        case 4: return 1;
         default : return 0;
         }
     }
@@ -117,6 +118,7 @@ class APDAppodealHUB: APDRootViewController, UITableViewDelegate, UITableViewDat
             default : break
             }; break;
         case 3: text = "Native Ads";                                break
+        case 4: text = "NonSkipVideo";                              break
         default : break
         }
         
@@ -158,6 +160,8 @@ class APDAppodealHUB: APDRootViewController, UITableViewDelegate, UITableViewDat
         case 3:
             let nextController : APDNativeHUB = APDNativeHUB()
             self.navigationController?.pushViewController(nextController, animated: true); break
+        case 4:
+            createAlertForPlacement(showStyle: AppodealShowStyle.nonSkippableVideo, rootController: self); break
         default:break
         }
     }
@@ -201,6 +205,49 @@ class APDAppodealHUB: APDRootViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    
+    
+    
+    func nonSkippableVideoDidClick() {
+        let alert = UIAlertController(title: "Alert", message: "nonSkippableVideoDidClick", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    func nonSkippableVideoDidFinish() {
+        let alert = UIAlertController(title: "Alert", message: "nonSkippableVideoDidFinish", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func nonSkippableVideoDidLoadAd() {
+        let alert = UIAlertController(title: "Alert", message: "nonSkippableVideoDidLoadAd", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func nonSkippableVideoDidPresent() {
+        let alert = UIAlertController(title: "Alert", message: "nonSkippableVideoDidPresent", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func nonSkippableVideoWillDismiss() {
+        let alert = UIAlertController(title: "Alert", message: "nonSkippableVideoWillDismiss", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func nonSkippableVideoDidFailToLoadAd() {
+        let alert = UIAlertController(title: "Alert", message: "nonSkippableVideoDidFailToLoadAd", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func nonSkippableVideoDidFailToPresent() {
+        let alert = UIAlertController(title: "Alert", message: "nonSkippableVideoDidFailToPresent", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }
 

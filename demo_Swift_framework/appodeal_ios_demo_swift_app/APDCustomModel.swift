@@ -15,6 +15,7 @@ class APDDemoModel: NSObject {
     var rewardedVideo : Bool
     var MREC : Bool
     var nativeAds : Bool
+    var nonSkipVideo : Bool
     
     var adType : AppodealAdType = []
     var locationTracking : Bool
@@ -33,8 +34,9 @@ class APDDemoModel: NSObject {
         rewardedVideo = true
         MREC = true
         nativeAds = true
+        nonSkipVideo = true
         
-        adType = [.interstitial, .rewardedVideo, .banner, .MREC, .nativeAd]
+        adType = [.interstitial, .rewardedVideo, .banner, .MREC, .nativeAd, .nonSkippableVideo]
         locationTracking = false
         autoCache = true
         
